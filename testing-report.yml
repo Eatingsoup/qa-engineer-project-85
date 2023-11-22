@@ -1,0 +1,28 @@
+---  
+- summary: |
+    Создание игры в браузере Safari
+  status: fail
+
+- summary: |
+    Отправка приглашения в баттл самому себе
+  status: pass
+
+- summary: |
+    Смена языка программирования в баттле
+  status: pass
+    
+- summary: |
+    Проверка смены языка для баттла
+  status: pass
+   
+- summary: |
+    Проверка трансляции баттла онлайн
+  status: pass
+
+- summary: |
+    Проверка авторизации через Github
+  status: pass
+    
+- summary: |
+    Проверка отвязки аккаунта Github от профиля
+  status: fail
