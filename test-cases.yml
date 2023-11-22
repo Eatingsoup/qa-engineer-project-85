@@ -1,0 +1,107 @@
+---  
+- summary: |
+    Создание игры в браузере Safari
+  requirement: |
+    Возможность настройки при создании лобби - сложность, задача, теги и временной лимит
+  prerequisites: |
+    Браузер Safari 16
+    Пользователь авторизован
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+  - Нажать кнопку Create a game
+  - Нажать кнопку Create Battle
+  expected-result: |
+    Открывается окно создания игры, баттл создан
+
+- summary: |
+    Отправка приглашения в баттл самому себе
+  requirement: |
+    Невозможно прислать приглашение в баттл самому себе
+  prerequisites: |
+    пользователь авторизован
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+  - Нажать кнопку "Create a game"
+  - Выбрать значение 1 в поле "Level"
+  - Выбрать значение "With a friend" в поле "Game Type"
+  - Выбрать 5 min в поле "Time control"
+  - Ввести в поле "Choose opponent" никнейм авторизованного пользователя
+  - Нажать кнопку "Create Invite"
+  expected-result: |
+    Кнопка "Create Invite" неактивна. В графе "Select" под полем "Choose opponent" нет имени пользователя, создающего приглашение
+
+- summary: |
+    Смена языка программирования в баттле
+  requirement: |
+    Возможность выбора языка программирования в терминале баттла
+  prerequisites: |
+    Пользователь авторизован
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+  - Нажать кнопку "Create a game"
+  - Установить параметры игры
+  - Нажать кнопку Create Battle
+  - Во вкладке над терминалом в списке выбрать язык, отличающийся от заданного по умолчанию
+  expected-result: |
+    Отображен и применяется в проверке решения язык, выбранный пользователем
+    
+- summary: |
+    Проверка смены языка для баттла
+  requirement: |
+    Задачи доступны на английском или русском языке
+  prerequisites: |
+    пользователь авторизован
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+  - Нажать кнопку Create a game
+  - Установить параметры игры
+  - Нажать кнопку Create Battle
+  - В поле задачи открыть вкладку со списком языков
+  - Выбрать RU
+  expected-result: |
+    Задача отображена на руском языке
+   
+- summary: |
+    Проверка трансляции баттла онлайн
+  requirement: |
+   Возможность просмотра баттла пользователями online
+  prerequisites: |
+    пользователь авторизован
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+  - Нажать вкладку LOBBY
+  - Нажать кнопку Show напротив транслируемого баттла
+  expected-result: |
+    Пользователю доступен просмотр баттла и видно изменения в режиме реального времени
+
+- summary: |
+    Проверка авторизации через Github
+  requirement: |
+    Возможность авторизации через Github
+  prerequisites: >
+    Зарегистрированный аккаунт Github
+  test-data: |
+    https://codebattle.hexlet.io/
+  steps:
+    - Нажать кнопку Sign In with GitHub
+  expected-result: |
+    Пользователь авторизован и попадает на главную страницу
+    
+- summary: |
+    Проверка отвязки аккаунта Github от профиля
+  requirement: |
+    Возможность авторизации через Github
+  prerequisites: >
+    Пользователь прошел авторизацию с Github
+  test-data: |
+    https://codebattle.hexlet.io/settings
+  steps:
+    - перейти в раздел Settings
+    - нажать кнопку Unlink Github
+  expected-result: |
+   Прекращено отображение ссылки на отключенный аккаунт
