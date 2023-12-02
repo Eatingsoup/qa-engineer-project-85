@@ -1,5 +1,29 @@
 ---  
 - summary: |
+    Проверка регистрации нового пользователя
+  status: pass
+
+- summary: |
+    Проверка регистрации пользователя c существующим никнеймом
+  status: pass
+
+- summary: |
+    Проверка входа пользователя с существующими email и паролем
+  status: pass
+
+- summary: |
+    Проверка авторизации через Github
+  status: pass
+
+- summary: |
+    Проверка авторизации через Discord
+  status: pass
+
+- summary: |
+    Проверка отвязки аккаунта Github от профиля
+  status: fail
+   
+- summary: |
     Создание игры в браузере Safari
   status: fail
 
@@ -20,9 +44,5 @@
   status: pass
 
 - summary: |
-    Проверка авторизации через Github
+    Проверка работоспособности чата пользователей
   status: pass
-    
-- summary: |
-    Проверка отвязки аккаунта Github от профиля
-  status: fail
