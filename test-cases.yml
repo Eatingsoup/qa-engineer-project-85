@@ -1,5 +1,104 @@
 ---  
 - summary: |
+    Проверка регистрации нового пользователя
+  requirement: |
+    Возможность регистрации нового пользователя
+  prerequisites: >
+    no prerequisites
+  test-data: |
+    Nickname = Ashotdikiy
+    Email = mdener@mail.ru
+    Password = 1234567890
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести данные в поля регистрации
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь успешно зарегистрирован
+
+- summary: |
+    Проверка регистрации пользователя c существующим никнеймом
+  requirement: |
+    При регистрации с существующим никнеймом пользователь должен получить сообщение об ошибке 
+  prerequisites: >
+    no prerequisites
+  test-data: |
+    Nickname = Ashotdikiy
+    Email = mdener@mail.ru
+    Password = 1234567890
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести данные в поля регистрации
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь должен получить сообщение об ошибке
+
+- summary: |
+    Проверка входа пользователя с существующими email и паролем
+  requirement: |
+    При верном вводе email и пароля пользователь должен войти в систему
+  prerequisites: >
+    no prerequisites
+  test-data: |
+    Nickname = Ashotdikiy
+    Email = mdener@mail.ru
+    Password = 1234567890
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести данные в поля авторизации
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь успешно авторизирован
+
+- summary: |
+    Проверка авторизации через Github
+  requirement: |
+    Возможность авторизации через Github
+  prerequisites: >
+    Зарегистрированный аккаунт Github
+  test-data: |
+    Email = mdener@mail.ru
+    Password = 1234567890
+  steps:
+    - Нажать кнопку Sign In
+    - Нажать кнопку Sign In with Github
+    - Вести данные пользователя
+    - Нажать кнопку авторизирования
+  expected-result: |
+    Пользователь авторизован и попадает на главную страницу
+
+- summary: |
+    Проверка авторизации через Discord
+  requirement: |
+    Возможность авторизации через Discord
+  prerequisites: >
+    Зарегистрированный аккаунт Discord
+  test-data: |
+    Email = mdener@mail.ru
+    Password = 1234567890
+  steps:
+    - Нажать кнопку Sign In
+    - Нажать кнопку Sign In with Discord
+    - Вести данные пользователя
+    - Нажать кнопку Авторизация
+  expected-result: |
+    Пользователь авторизован и попадает на главную страницу
+
+- summary: |
+    Проверка отвязки аккаунта Github от профиля
+  requirement: |
+    Возможность авторизации через Github
+  prerequisites: >
+    Пользователь прошел авторизацию с Github
+  test-data: |
+    Нет
+  steps:
+    - перейти в раздел Settings
+    - нажать кнопку Unlink Github
+  expected-result: |
+   Прекращено отображение ссылки на отключенный аккаунт
+   
+- summary: |
     Создание игры в браузере Safari
   requirement: |
     Возможность настройки при создании лобби - сложность, задача, теги и временной лимит
@@ -7,12 +106,12 @@
     Браузер Safari 16
     Пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/#lobby
+    Нет
   steps:
   - Нажать кнопку Create a game
-  - Нажать кнопку Create Battle
+  - Выбрать любые опции игры
   expected-result: |
-    Открывается окно создания игры, баттл создан
+    Баттл отображается в списке игр лобби
 
 - summary: |
     Отправка приглашения в баттл самому себе
@@ -21,16 +120,14 @@
   prerequisites: |
     пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/#lobby
+    Нет
   steps:
   - Нажать кнопку "Create a game"
-  - Выбрать значение 1 в поле "Level"
-  - Выбрать значение "With a friend" в поле "Game Type"
-  - Выбрать 5 min в поле "Time control"
-  - Ввести в поле "Choose opponent" никнейм авторизованного пользователя
+  - Выбрать любые опции игры
+  - Выбрать себя в качестве опонента
   - Нажать кнопку "Create Invite"
   expected-result: |
-    Кнопка "Create Invite" неактивна. В графе "Select" под полем "Choose opponent" нет имени пользователя, создающего приглашение
+    Приглашение отправить невозможно
 
 - summary: |
     Смена языка программирования в баттле
@@ -39,7 +136,7 @@
   prerequisites: |
     Пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/#lobby
+    Нет
   steps:
   - Нажать кнопку "Create a game"
   - Установить параметры игры
@@ -55,7 +152,7 @@
   prerequisites: |
     пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/#lobby
+    Нет
   steps:
   - Нажать кнопку Create a game
   - Установить параметры игры
@@ -72,7 +169,7 @@
   prerequisites: |
     пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/#lobby
+    Нет
   steps:
   - Нажать вкладку LOBBY
   - Нажать кнопку Show напротив транслируемого баттла
@@ -80,28 +177,15 @@
     Пользователю доступен просмотр баттла и видно изменения в режиме реального времени
 
 - summary: |
-    Проверка авторизации через Github
+    Проверка работоспособности чата пользователей
   requirement: |
-    Возможность авторизации через Github
-  prerequisites: >
-    Зарегистрированный аккаунт Github
+   Возможность писать в чате пользователей
+  prerequisites: |
+    пользователь авторизован
   test-data: |
-    https://codebattle.hexlet.io/
+    Нет
   steps:
-    - Нажать кнопку Sign In with GitHub
+  - Вести в поле чата "Hello"
+  - Нажать кнопку Send
   expected-result: |
-    Пользователь авторизован и попадает на главную страницу
-    
-- summary: |
-    Проверка отвязки аккаунта Github от профиля
-  requirement: |
-    Возможность авторизации через Github
-  prerequisites: >
-    Пользователь прошел авторизацию с Github
-  test-data: |
-    https://codebattle.hexlet.io/settings
-  steps:
-    - перейти в раздел Settings
-    - нажать кнопку Unlink Github
-  expected-result: |
-   Прекращено отображение ссылки на отключенный аккаунт
+    Сообщение отображено в чате
