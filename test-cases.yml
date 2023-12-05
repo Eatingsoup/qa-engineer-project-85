@@ -6,9 +6,7 @@
   prerequisites: >
     no prerequisites
   test-data: |
-    Nickname = Ashotdikiy
-    Email = mdener@mail.ru
-    Password = 1234567890
+    Нет
   steps:
     - Нажать кнопку Sign Up
     - Ввести данные в поля регистрации
@@ -34,13 +32,12 @@
     Пользователь должен получить сообщение об ошибке
 
 - summary: |
-    Проверка входа пользователя с существующими email и паролем
+    Проверка успешной авторизации
   requirement: |
     При верном вводе email и пароля пользователь должен войти в систему
   prerequisites: >
     no prerequisites
   test-data: |
-    Nickname = Ashotdikiy
     Email = mdener@mail.ru
     Password = 1234567890
   steps:
@@ -177,7 +174,7 @@
     Пользователю доступен просмотр баттла и видно изменения в режиме реального времени
 
 - summary: |
-    Проверка работоспособности чата пользователей
+    Проверка отправки сообщения в чат
   requirement: |
    Возможность писать в чате пользователей
   prerequisites: |
